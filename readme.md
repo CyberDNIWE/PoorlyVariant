@@ -1,18 +1,18 @@
 ﻿# poorly :: variant & poorly :: variant_visitable
 
-[Poorly (made) variant](https://github.com/CyberDNIWE/PoorlyVariant) and [variant_visitable](https://github.com/CyberDNIWE/PoorlyVariant) are non-allocating stl-free C++11 variant and its _visitable_ version (similar in intent to std::visit), for platforms/cases where you don't have stl available (like arduino with its `avr-gcc`).
+[Poorly (made) variant](https://github.com/CyberDNIWE/PoorlyVariant) and [variant_visitable](https://github.com/CyberDNIWE/PoorlyVariant) are non-allocating stl-free C++11 variant with base functionality akin to [`std::variant`](https://en.cppreference.com/w/cpp/utility/variant)  and its _visitable_ version (similar in intent to [std::visit](https://en.cppreference.com/w/cpp/utility/variant/visit)).
 
-Made primarily for embeded devices which compiler vendors did not bother with providing `STL` with their compiler (looking at you `avr-gcc`).
+Made primarily for platforms for embeded devices which compiler vendors did not bother with providing `STL` with their compiler (looking at you `arduino avr-gcc`).
 
-It is **not meant** as a drop-in replacement for `std::variant`, so use standard one wherever you are able to.
+It is **not meant** as a drop-in replacement for [`std::variant`](https://en.cppreference.com/w/cpp/utility/variant), so use standard one wherever you are able to.
 
 > **There is no guarantee it will work for your case/compiler and using it in production (or at all, really) is highly inadvisable (hence the namespace)**
 
 
 ## Features
  - STL-free
- - Guaranteed not to allocate
    - All required utilities come in `StlReplacer.h`
+ - Guaranteed not to allocate
  - Compile-time type checking 
    - Fails compilation when trying to `set<T>(...)` of type not listed in `variant<Ts...>` Ts... list declaration
  - Preferes not to throw 
